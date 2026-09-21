@@ -1,0 +1,41 @@
+# ── Secrets — never commit ─────────────────────────────────────────
+.env
+.env.*
+!.env.example
+keys.txt
+*.key
+provisioned.ts
+
+# ── Dependencies ───────────────────────────────────────────────────
+node_modules/
+mobile/node_modules/
+
+# ── Build output ───────────────────────────────────────────────────
+dist/
+dist-electron/
+mobile/dist/
+
+# ── Logs ───────────────────────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+
+# ── OS / editor junk ───────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# ── Electron / packaging output ────────────────────────────────────
+release/
+*.dmg
+*.AppImage
+*.snap
+*.exe
+
+# ── Local app data created at runtime (never commit) ───────────────
+ben-memory.json
+ben-journal.json
+ben-sync.json
+jarvis-settings.json

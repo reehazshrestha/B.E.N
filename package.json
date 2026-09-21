@@ -1,0 +1,48 @@
+{
+  "name": "jarvis-live",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Real-time JARVIS Voice Assistant with Gemini Live Multimodal API & Native Desktop HUD",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "jarvis",
+    "gemini",
+    "gemini-live",
+    "voice-assistant",
+    "electron",
+    "hud"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.37.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "systeminformation": "^5.33.6",
+    "tailwind-merge": "^3.6.0",
+    "thinking-orbs": "0.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.4.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "cross-env": "^10.1.0",
+    "electron": "^44.0.0",
+    "esbuild": "^0.28.2",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2",
+    "vite-plugin-electron": "^0.29.0",
+    "vite-plugin-electron-renderer": "^0.14.6",
+    "ws": "^8.21.3"
+  }
+}

@@ -1,0 +1,7 @@
+node_modules
+dist
+android/app/build
+android/build
+android/.gradle
+# Generated, and contains live API keys.
+src/provisioned.ts

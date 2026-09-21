@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">B.E.N.</string>
+    <string name="title_activity_main">B.E.N.</string>
+    <string name="package_name">com.ben.assistant</string>
+    <string name="custom_url_scheme">com.ben.assistant</string>
+</resources>

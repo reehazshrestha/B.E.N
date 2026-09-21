@@ -1,0 +1,7 @@
+{
+  "appId": "com.ben.assistant",
+  "appName": "B.E.N.",
+  "webDir": "dist",
+  "android": { "allowMixedContent": true },
+  "server": { "androidScheme": "http", "cleartext": true }
+}

@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vault-bg: #07060B;
+  --color-vault-panel: #0E0C15;
+  --color-vault-line: #241C3A;
+  --color-vault-text: #E8E3F5;
+  --color-vault-dim: #8A82A6;
+  --color-vault-accent: #A855F7;
+  --color-vault-accent-soft: #C084FC;
+}
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--color-vault-bg);
+  color: var(--color-vault-text);
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  /* The phone's notch and gesture bar. */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input, textarea { font-size: 16px; }   /* anything smaller makes iOS/Android zoom on focus */
+
+.field {
+  width: 100%;
+  background: #151221;
+  border: 1px solid var(--color-vault-line);
+  border-radius: 10px;
+  color: var(--color-vault-text);
+  outline: none;
+}
+.field:focus { border-color: color-mix(in srgb, var(--color-vault-accent) 60%, transparent); }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }

@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   V.A.U.L.T. design tokens.
+   One palette for the whole app so panels, modals and overlays stay
+   in step. Violet is the primary accent; cyan is reserved for live
+   data readouts and amber for build/tool activity.
+   --------------------------------------------------------------- */
+@theme {
+  --color-vault-base: #07060B;
+  --color-vault-panel: #0E0C15;
+  --color-vault-raised: #151221;
+  --color-vault-elevated: #1C162E;
+  --color-vault-line: #241C3A;
+  --color-vault-text: #E8E3F5;
+  --color-vault-muted: #8A82A6;
+  --color-vault-accent: #A855F7;
+  --color-vault-accent-strong: #9333EA;
+  --color-vault-accent-soft: #C084FC;
+  --color-vault-data: #22D3EE;
+  --color-vault-warn: #F59E0B;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-vault-base);
+    color: var(--color-vault-text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', sans-serif;
+    user-select: none;
+    overflow: hidden;
+  }
+
+  .font-mono {
+    font-family: 'Share Tech Mono', 'Menlo', 'Monaco', monospace;
+  }
+
+  /* Form controls default to the host accent colour, which reads as a
+     stray blue against the violet panels. */
+  input[type='checkbox'] {
+    accent-color: var(--color-vault-accent);
+  }
+
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  button:focus-visible {
+    outline: 1px solid var(--color-vault-accent);
+    outline-offset: 1px;
+  }
+}
+
+@layer components {
+  /* Shared panel chrome used by the columns and the modals. */
+  .vault-panel {
+    border: 1px solid var(--color-vault-line);
+    background-color: var(--color-vault-panel);
+    border-radius: 0.75rem;
+  }
+
+  .vault-field {
+    width: 100%;
+    background-color: var(--color-vault-base);
+    border: 1px solid var(--color-vault-line);
+    border-radius: 0.5rem;
+    color: var(--color-vault-text);
+    transition: border-color 150ms ease;
+  }
+
+  .vault-field:focus {
+    outline: none;
+    border-color: var(--color-vault-accent);
+  }
+
+  .vault-field::placeholder {
+    color: color-mix(in srgb, var(--color-vault-muted) 60%, transparent);
+  }
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(14, 12, 21, 0.6);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.3);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.6);
+}
+
+/* Shimmer Progress Animation */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+/* Notch pill breathing glow.
+   This used to be a 40ms setInterval driving React state in the always-on-top
+   notch window, so the overlay re-rendered 25 times a second even at idle. The
+   accent colour comes in as --notch-accent; the animation runs on the
+   compositor and costs no renders. */
+@keyframes notch-breathe {
+  0%, 100% {
+    border-color: color-mix(in srgb, var(--notch-accent) 55%, transparent);
+    box-shadow: 0 0 12px color-mix(in srgb, var(--notch-accent) 25%, transparent),
+                inset 0 0 12px rgba(0, 0, 0, 0.8);
+  }
+  50% {
+    border-color: var(--notch-accent);
+    box-shadow: 0 0 22px color-mix(in srgb, var(--notch-accent) 55%, transparent),
+                inset 0 0 12px rgba(0, 0, 0, 0.8);
+  }
+}
+
+.notch-pill {
+  border: 1.4px solid var(--notch-accent);
+  animation: notch-breathe 2.4s ease-in-out infinite;
+}
+
+/* Speaking gets the quicker pulse the old JS driver gave it. */
+.notch-pill[data-speaking='true'] {
+  animation-duration: 1.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .notch-pill {
+    animation: none;
+  }
+}
